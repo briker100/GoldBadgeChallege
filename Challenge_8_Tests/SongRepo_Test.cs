@@ -1,16 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Challenge_8_Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class SongRepo_Test
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
-
-
-        }
+        Queue<Song> _songListTest;
     }
 }

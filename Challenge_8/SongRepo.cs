@@ -8,7 +8,7 @@ namespace Challenge_8
 {
     class SongRepo
     {
-        Queue<Song> _songList = new Queue<Song>();
+        Queue<Song> song = new Queue<Song>();
 
 
         public void AddSong(Song s)

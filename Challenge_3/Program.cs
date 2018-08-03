@@ -12,6 +12,7 @@ namespace Challenge_3
         {
 
             OutingRepo Greet = new OutingRepo();
+
             Greet.PrintList(Greet.GetOutingList());
 
             DateTime DateTime = new DateTime(2018, 2, 4);
@@ -21,54 +22,58 @@ namespace Challenge_3
 
 
 
-            Outing s1 = new Outing("Golf", 1, DateTime, 8.00, 120.00);
-            Outing s2 = new Outing("Bowling", 1, DateTime, 16.00, 500.00);
-            Outing s3 = new Outing("Amusement Park", 1, DateTime, 36.00, 1500.00);
-            Outing s4 = new Outing("Concert", 1, DateTime, 60.00, 3000.00);
+            Outing e1 = new Outing("Golf", 1, DateTime, 8.00, 120.00);
+            Outing e2 = new Outing("Bowling", 1, DateTime, 16.00, 500.00);
+            Outing e3 = new Outing("Amusement Park", 1, DateTime, 36.00, 1500.00);
+            Outing e4 = new Outing("Concert", 1, DateTime, 60.00, 3000.00);
 
-            Greet.AddOuting(s1);
-            Greet.AddOuting(s2);
-            Greet.AddOuting(s3);
-            Greet.AddOuting(s4);
+            Greet.AddOuting(e1);
+            Greet.AddOuting(e2);
+            Greet.AddOuting(e3);
+            Greet.AddOuting(e4);
 
             Greet.PrintList(Greet.GetOutingList());
 
 
             Console.WriteLine("Please Enter The Type of Outing");
-            string x = Console.ReadLine();
+            string Type = Console.ReadLine();
 
             Console.WriteLine("Please Enter The Number Of people Going");
-            string q = Console.ReadLine();
+            double Number = double.Parse(Console.ReadLine());
 
             Console.WriteLine("Please Enter Month,Day,and Year of Outing");
-            string w = Console.ReadLine();
+            DateTime Date = DateTime.Parse(Console.ReadLine());
 
             Console.WriteLine("Please Enter The cost for 1 person to go to the Outing");
-            string e = Console.ReadLine();
+            double Cost1 = double.Parse(Console.ReadLine());
 
             Console.WriteLine("Please Enter The cost for everyone to go to the outing");
-            string r = Console.ReadLine();
+            double CostAll = double.Parse(Console.ReadLine());
 
-           // DateTime userTime = DateTime.Parse(Console.ReadLine());
+
+            // DateTime userTime = DateTime.Parse(Console.ReadLine());
             // bool apprunning = true;
+            Outing Event = new Outing(Type, Number, Date, Cost1, CostAll);
             while (true)
             {
+
                 Console.WriteLine("Here Is The Information For The Outing");
                 string m = Console.ReadLine();
                 if (m == " ")
                 {
-                    Greet.AddOuting();
+                    Greet.AddOuting(Event);
                     Greet.GetOutingList();
                 }
-                Console.WriteLine($"Title:{x}\n" +  
-                    $"Number Of People:{q}\n"  +
-                    $"Time Of Concert:{w}\n" +
-                    $"Cost For a Person:{e}\n" +
-                    $"Cost For Event:{r}\n");
+                Console.WriteLine($"Title:{Type}\n" +  
+                    $"Number Of People:{Number}\n"  +
+                    $"Time Of Concert:{Date}\n" +
+                    $"Cost For a Person:{Cost1}\n" +
+                    $"Cost For Event:{CostAll}\n");
+                
                 
                 Greet.PrintList(Greet.GetOutingList());
-                double v = 120 + 500 + 1500 + 3000;
-                Console.WriteLine($"Combined Cost Outings:{r} + {v}\n");
+                double v = 120 + 500 + 1500 + 3000; 
+                Console.WriteLine($"Combined Cost Outings:{CostAll} + {v}\n");
                 Console.WriteLine();
                 Console.ReadLine();
             }

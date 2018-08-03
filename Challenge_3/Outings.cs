@@ -6,32 +6,30 @@ using System.Threading.Tasks;
 
 namespace Challenge_3
 {
-    class Outing
+    public class Outing
     {
-        public string Type { get; set; }
-        public double NumberPeople { get; set; }
-        public DateTime Now { get; set; }
+        public string Name { get; set; }
+        public double NumberofPeople { get; set; }
+        public DateTime Time { get; set; }
         public double CostPerson { get; set; }
         public double CostEvent { get; set; }
 
-
-        public Outing(string t, double n, DateTime q, double cp, double ce)
+        public Outing(string name, double numberofpeople, DateTime time, double Costperson, double Costevent)
         {
-            Type = t;
-            NumberPeople = n;
-            Now = q;
-            CostPerson = cp;
-            CostEvent = ce;
-
+            Name = name;
+            NumberofPeople = numberofpeople;
+            Time = time;
+            CostPerson = Costperson;
+            CostEvent = Costevent;
         }
 
         public override string ToString()
         {
-            return $"Title: {Type}\n" +
-                $"Number of People: { NumberPeople}\n" +
-                $"Time Of Concert:{Now}\n" +
-                $"Cost of A Person: {CostPerson}\n" +
-                $"Cost of The Event:{CostEvent}\n";
+            return $"Name: {Name}\n" +
+                $"Number of People: { NumberofPeople}\n" +
+                $"When The Concert is: {Time}\n" +
+                $"Cost a Person to go in Outing {CostPerson}\n" +
+                $"Cost of a Entire Event{CostEvent}\n";
 
         }
     }

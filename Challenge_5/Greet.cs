@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Challenge_5
 {
-    class Greet
+   public class Greet
     {
         //public class Greets
         //{

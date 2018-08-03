@@ -6,13 +6,20 @@ using System.Threading.Tasks;
 
 namespace Challenge_3
 {
-    class OutingRepo
+    public class OutingRepo
     {
         List<Outing> _Outing = new List<Outing>();
 
         public void AddOuting(Outing s)
         {
             _Outing.Add(s);
+        }
+        
+        //List<OutingRepo> Outing1 = new List<OutingRepo>();
+
+        public void RemoveOuting(Outing s)
+        {
+            _Outing.Remove(s);
         }
 
         public List<Outing> GetOutingList()
@@ -22,15 +29,10 @@ namespace Challenge_3
 
         public void PrintList(List<Outing> list)
         {
-            foreach (Outing item in list)
+            foreach (Outing item in list)   
             {
                 Console.WriteLine(item);
             }
-        }
-
-        internal void AddOuting()
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Challenge_1
 {
-    class menu_Repo
+   public class menu_Repo
     {
         public List<MenuItem> menuList = new List<MenuItem>();
-        
-        public void AddItemtoMenu(MenuItem Item)
+
+        public void AddItemToMenu(MenuItem Item)
         {
             menuList.Add(Item);
         }
@@ -30,11 +30,12 @@ namespace Challenge_1
             return lookup;
         }
 
-        public List<MenuItem> GetList()
+        public List<MenuItem> GetList() 
         {
             return menuList;
         }
 
+       
         public void RemoveItemFromMenu(string name)
         {
             List<MenuItem> Removing = menuList.FindAll(x => x.Name == name );
@@ -44,20 +45,20 @@ namespace Challenge_1
                 menuList.Remove(meal);
             }
         }
-        public void AddItemToMenu(List<MenuItem> Items)
+
+        public List<MenuItem> PrintList()
         {
-          foreach(MenuItem item in Items)
+            return menuList;
+        }
+
+        public void PrintList(List<MenuItem> theList)
+        {
+            foreach (MenuItem Info in theList)
             {
-                menuList.Add(item);
+                Console.WriteLine(Info);
             }
         }
 
-        public void PrintList(List<MenuItem> theList )
-        {
-            foreach (MenuItem item in theList)
-            {
-                Console.WriteLine(item);
-            }
-        }
+
     }
 }

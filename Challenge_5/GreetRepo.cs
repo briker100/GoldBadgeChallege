@@ -6,18 +6,16 @@ using System.Threading.Tasks;
 
 namespace Challenge_5
 {
-    class GreetRepo
+   public class GreetRepo
     {
-
-       
-            List<Greet> Info = new List<Greet>();
+           public List<Greet> Info = new List<Greet>();
 
             public void addInfotoList(Greet theInfo)
             {
                 Info.Add(theInfo);
             }
 
-            public List<Greet> getList()
+            public List<Greet> printList()
             {
                 return Info;
             }
@@ -29,10 +27,11 @@ namespace Challenge_5
                     Console.WriteLine(Info);
                 }
             }
-            public void removeFromList(string FirstName)
-            {
-                int theIndex = Info.FindIndex(Info => Info.firstname == FirstName);
-                Info.RemoveAt(theIndex);
-            }
+
+            public void removeFromList(string Usershow)
+             {
+            int Index = Info.FindIndex(Userinput => Userinput.firstname == Usershow);
+           // Greet.removeFromList(Usershow);
+             }
     }
 }
