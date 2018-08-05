@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Challenge_1
 {
-    
+
     public class MenuItem
     {
         //Constructor
@@ -20,12 +20,20 @@ namespace Challenge_1
             Description = r;
             Ingred = i;
             Number = n;
-
         }
+
+
         public string Name { get; set; }
         public double Price { get; set; }
         public string Description { get; set; }
         public string Ingred { get; set; }
         public int Number { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+                
+        }
     }
-}
+    }
+

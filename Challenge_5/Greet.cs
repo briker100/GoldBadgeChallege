@@ -8,27 +8,25 @@ namespace Challenge_5
 {
    public class Greet
     {
-        //public class Greets
-        //{
+        public Greet() { }
 
-            public string firstname { get; set; }
-            public string lastname { get; set; }
-            public string type { get; set; }
-            public string email { get; set; }
 
-            public Greet(string FirstName, string LastName, string Type, string Email)
+         public string Firstname { get; set; }
+            public string Lastname { get; set; }
+            public string Type { get; set; }
+            public string Email { get; set; }
+
+            public Greet(string firstName, string lastName, string type, string email)
             {
-                firstname = FirstName;
-                lastname = LastName;
-                type = Type;
-                email = Email;
+                Firstname = firstName;
+                Lastname = lastName;
+                Type = Type;
+                Email = email;
             }
-
-
-
+        
             public override string ToString()
             {
-                string stringToReturn = $"{firstname}\t {lastname}\t{type}\t{email}\t\n";
+                string stringToReturn = $"{Firstname}\t {Lastname}\t{Type}\t{Email}\t\n";
 
                 return stringToReturn;
 

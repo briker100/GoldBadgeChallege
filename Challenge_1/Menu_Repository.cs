@@ -30,23 +30,18 @@ namespace Challenge_1
             return lookup;
         }
 
-        public List<MenuItem> GetList() 
+        public List<MenuItem> GetList()
         {
             return menuList;
         }
 
-       
-        public void RemoveItemFromMenu(string name)
-        {
-            List<MenuItem> Removing = menuList.FindAll(x => x.Name == name );
 
-            foreach (MenuItem meal in Removing)
-            {
-                menuList.Remove(meal);
-            }
+        public void RemoveItemFromMenu(MenuItem p)
+        {
+             menuList.Remove(p);
         }
 
-        public List<MenuItem> PrintList()
+    public List<MenuItem> PrintList()
         {
             return menuList;
         }
@@ -58,7 +53,6 @@ namespace Challenge_1
                 Console.WriteLine(Info);
             }
         }
-
 
     }
 }

@@ -28,10 +28,10 @@ namespace Challenge_5
                 }
             }
 
-            public void removeFromList(string Usershow)
-             {
-            int Index = Info.FindIndex(Userinput => Userinput.firstname == Usershow);
-           // Greet.removeFromList(Usershow);
-             }
+        public void removeFromList(Greet CustomerToDelete)
+        {
+            Info.Remove(CustomerToDelete);
+        }
+        }
     }
-}
+

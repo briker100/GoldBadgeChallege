@@ -17,7 +17,7 @@ namespace Challenge_1_Tests
             MenuItem Burger = new MenuItem("Bacon Burger", 12.99, "A Warm Crispy Bacon Burger With Over-Flowing Juices and a soft seaseme bun to die for. Includes bun, Meat, Lettuce, Bacon, Tomatoes, Ketchup, and more.", "Bun, Tomatoes, Picles, Lettuce and Sauce", 1);
             _menu.AddItemToMenu(Burger);
 
-            var actual = _menu.GetList().Count;
+            var actual = _menu.PrintList().Count;
             var expected = 1;
 
             Assert.AreEqual(expected, actual);
@@ -30,7 +30,7 @@ namespace Challenge_1_Tests
             _menu.FindMenubyNumber(lookup);
 
 
-            var actual = _menu.GetList();
+            var actual = _menu.PrintList();
             var expected = lookup;
 
             Assert.AreEqual(expected, actual);
@@ -40,9 +40,9 @@ namespace Challenge_1_Tests
         public void Menu_Repo_GetList_ShouldGetTheList()
         {
             MenuItem GetList = new MenuItem();
-            _menu.GetList();
+            _menu.PrintList();
 
-            var actual = _menu.GetList().Count;
+            var actual = _menu.PrintList().Count;
             var expected = GetList;
 
             Assert.AreEqual(expected, actual);
@@ -53,8 +53,8 @@ namespace Challenge_1_Tests
         {
             MenuItem meal = new MenuItem("Bacon Burger", 12.99, "A Warm Crispy Bacon Burger With Over-Flowing Juices and a soft seaseme bun to die for. Includes bun, Meat, Lettuce, Bacon, Tomatoes, Ketchup, and more.", "Bun, Tomatoes, Picles, Lettuce and Sauce", 1);
             _menu.AddItemToMenu(meal);
-            _menu.RemoveItemFromMenu("Bacon Burger");
-            List<MenuItem> stuff = _menu.GetList();
+            _menu.RemoveItemFromMenu(meal);
+            List<MenuItem> stuff = _menu.PrintList();
 
             var actual = stuff.Count;
             var expected = 0;

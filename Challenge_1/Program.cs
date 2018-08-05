@@ -12,10 +12,10 @@ namespace Challenge_1
         {
 
             menu_Repo MenuRepo = new menu_Repo();
-            var meal = MenuRepo.GetList();
+            var meal = MenuRepo.PrintList();
 
             Console.WriteLine("What Would You Like To Order, Please Enter A Number");
-            Console.WriteLine("We Have  #1 Bacon Burger, #2 Bacon Sald, #3 Bacon Soda, and #4 Chocolate Cake");
+            Console.WriteLine("We Have  #1 Bacon Burger, #2 Bacon Salad, #3 Bacon Soda, and #4 Chocolate Cake");
             Console.WriteLine("I Would Like A Number:");
             //  Console.WriteLine("Here Is What We Currently Have");
 
@@ -63,8 +63,7 @@ namespace Challenge_1
             Console.WriteLine("Would You Like To add an item");
 
             string response = Console.ReadLine();
-
-            if (response == "yes")
+              while (response == "yes")
             {
                 Console.WriteLine("Please Enter The Name Of Meal");
                 string p = Console.ReadLine();
@@ -78,43 +77,39 @@ namespace Challenge_1
                 int n = int.Parse(Console.ReadLine());
                 MenuItem newMenuItem = new MenuItem(p, o, i, u, n);
 
-                Console.WriteLine("Here Is the Information for the Meal");
+                Console.WriteLine("Here Is the The New Menu");
 
-                string l = Console.ReadLine();
-                
-                    MenuRepo.AddItemToMenu(newMenuItem);
-
-                    MenuRepo.PrintList();
-                
-                Console.WriteLine($"Name:{p}\n" +
-                        $"Number:{n}\n" +
-                   $"Price:{o}\n" +
-                   $"Description:{i}\n" +
-                   $"Ingrediants:{u}\n");
+                MenuRepo.AddItemToMenu(newMenuItem);
+                MenuRepo.PrintList(MenuRepo.PrintList());
+                Console.ReadLine();
+                Console.WriteLine("Would You Like To add an item");
+                response = Console.ReadLine();
 
             }
-            else if (response == "no")
+
             {
                 Console.WriteLine("Would You Like To Delete an item");
+                response = Console.ReadLine();
                 if (response == "yes")
                 {
                     Console.WriteLine("What Item Would You Like To Delete");
-                    string t = Console.ReadLine();
-                    MenuRepo.RemoveItemFromMenu(t);
-                    MenuRepo.PrintList();
+                    string p = Console.ReadLine();
+
+                    foreach (var MenuItem in MenuRepo.menuList)
+                    {
+                        if (MenuItem.Name == p)
+                        {
+                            MenuRepo.RemoveItemFromMenu(MenuItem);
+                            break;
+                        }
+                    }
+                    Console.WriteLine("\n");
+                    MenuRepo.PrintList(MenuRepo.PrintList());
+                    Console.ReadLine();
                 }
-
-            }
-          
-            MenuRepo.PrintList(MenuRepo.GetList());
-            {
-
-                Console.ReadLine();
             }
         }
-
     }
-
 }
         
 

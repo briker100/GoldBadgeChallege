@@ -13,10 +13,10 @@ namespace Challenge_5
 
             GreetRepo theList = new GreetRepo();
 
-            Greet Info1 = new Greet("Billy", "Maze", "Potential", "911-911-0911");
-            Greet Info2 = new Greet("God", "Almighty", "Current", "111-111-1111");
-            Greet Info3 = new Greet("Santa", "TwinkleToes", "Past", "123-456-7890");
-            Greet Info4 = new Greet("Jaws", "Jr", "Current", "924-015-1859");
+            Greet Info1 = new Greet("Billy", "Maze", "Potential", "SaviorofElves@gmail.com");
+            Greet Info2 = new Greet("God", "Almighty", "Current", "theBigBoss@gmail.com");
+            Greet Info3 = new Greet("Santa", "TwinkleToes", "Past", "TheHiddenWorkshop@gmail.com");
+            Greet Info4 = new Greet("Jaws", "Jr", "Current", "TheDeepBlue@gmail.com");
 
             theList.addInfotoList(Info1);
             theList.addInfotoList(Info2);
@@ -24,8 +24,9 @@ namespace Challenge_5
             theList.addInfotoList(Info4);
 
             theList.printList(theList.printList());
-
-            while (true)
+            Console.WriteLine("Would You Like To Add A Customer");
+            var response = Console.ReadLine();
+            while (response == "yes")
             {
                 Console.WriteLine("Enter The FirstName \t");
                 string FirstName = Console.ReadLine();
@@ -54,26 +55,31 @@ namespace Challenge_5
                 theList.addInfotoList(userShow);
 
                 Console.WriteLine("Do You Want To Add Another Customer");
-                string theAnswer = Console.ReadLine();
-                if (theAnswer == "yes")
-                {
+                response = Console.ReadLine();
+            }
 
-                }
-                else if (theAnswer == "no")
-                {
-                    Console.WriteLine("Would You Like To Delete a Customer");
-                    if (theAnswer == "yes")
+            Console.WriteLine("Would You Like To Delete a Customer");
+            response = Console.ReadLine();
+            if (response == "yes")
+                Console.WriteLine("What Customer Do You Want To Delete");
+            var CustomerToDelete = Console.ReadLine();
 
-                        theList.removeFromList(FirstName);
-                    theList.printList(theList.printList());
-                }
-            
-                else if (theAnswer == "no")
+            foreach (var Greet in theList.Info)
+            {
+                if (Greet.Firstname == CustomerToDelete)
                 {
+                    theList.removeFromList(Greet);
                     break;
                 }
-                }
             }
+            Console.WriteLine();
+            theList.printList(theList.printList());
+            Console.ReadLine();
         }
     }
+}
+
+        
+
+
 
