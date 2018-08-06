@@ -30,7 +30,7 @@ namespace Challenge_1_Tests
             _menu.FindMenubyNumber(lookup);
 
 
-            var actual = _menu.PrintList();
+            var actual = _menu.PrintList().Count;
             var expected = lookup;
 
             Assert.AreEqual(expected, actual);
