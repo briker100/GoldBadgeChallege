@@ -43,7 +43,7 @@ namespace Challenge_1_Tests
             _menu.PrintList();
 
             var actual = _menu.PrintList().Count;
-            var expected = GetList;
+            var expected = 0;
 
             Assert.AreEqual(expected, actual);
         }
@@ -70,7 +70,7 @@ namespace Challenge_1_Tests
             _menu.PrintList();
 
             var actual = _menu.PrintList().Count;
-            var expected = 1;
+            var expected = 0;
 
             Assert.AreEqual(expected, actual);
         }

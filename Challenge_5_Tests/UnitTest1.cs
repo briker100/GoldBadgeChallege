@@ -30,7 +30,7 @@ namespace Challenge_5_Tests
             _Greet.printList();
 
             var actual = _Greet.printList().Count;
-            var expected = GetList;
+            var expected = 0;
 
             Assert.AreEqual(expected, actual);
 
