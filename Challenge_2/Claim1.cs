@@ -6,40 +6,49 @@ using System.Threading.Tasks;
 
 namespace Challenge_2
 {
-    public enum ClaimType
+    public enum TypeOfClaim { Car = 1, Home = 2, Theft = 3, Other = 4 }
+    public class Claims
     {
-        Car = 1, Home, Theft
-    }
-    public class ClaimRepo
-    {
-        public ClaimRepo(DateTime dateAndTimeOfIncident)
-        {
-            DateAndTimeOfIncident = dateAndTimeOfIncident;
-        }
+        private bool _isValid;
+        public Claims() { }
 
+        public Claims(int id, TypeOfClaim type, string description, decimal amount, string claimDate,
+            string incidentDate, bool _isValid)
+        {
+            ClaimID = id;
+            Category = type;
+            Description = description;
+            ClaimAmount = amount;
+            IsValid = _isValid;
+            ClaimDate = claimDate;
+            IncidentDate = incidentDate;
+        }
+        //Properties
         public int ClaimID { get; set; }
-        public ClaimType ClaimType { get; set; }
+        public TypeOfClaim Category { get; set; }
         public string Description { get; set; }
         public decimal ClaimAmount { get; set; }
-        public DateTime DateAndTimeOfIncident { get; set; }
-        public DateTime DateReportedToInsurance { get; set; }
-        public TimeSpan TimeBetweenIncidentAndClaim => DateReportedToInsurance - DateAndTimeOfIncident;
+        public string ClaimDate { get; set; }
+        public string IncidentDate { get; set; }
+        public TimeSpan TimeSinceIncident => Convert.ToDateTime(ClaimDate) - Convert.ToDateTime(IncidentDate);
+        public bool IsValid { get; set; }
 
-        private bool _isValid;
+        public override string ToString() => $"Claim ID: {ClaimID} \nClaim Type: {Category} \nDescription: {Description} \nClaim Amount: ${ClaimAmount} \nClaim Date: {ClaimDate}\nIncident Date: {IncidentDate}\nTime Since Incident: {TimeSinceIncident}\nIs the claim valid? {IsValid}";
 
-        public bool IsValid
+        public bool GetBoolean(Claims claim)
         {
-            get => _isValid;
+            TimeSpan TimeSinceIncident = Convert.ToDateTime(claim.ClaimDate) - Convert.ToDateTime(claim.IncidentDate);
 
-            set
+            bool IsValid;
+
+            if (TimeSinceIncident.Days <= 30)
             {
-                if (TimeBetweenIncidentAndClaim.Days < 30)
-                    _isValid = true;
-
-                else if (TimeBetweenIncidentAndClaim.Days < 30)
-                    _isValid = false;
+                _isValid = true;
             }
-        }
+            else _isValid = false;
 
+            IsValid = _isValid;
+            return IsValid;
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Challenge_2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,28 +7,42 @@ using System.Threading.Tasks;
 
 namespace Challenge_8
 {
-    class ClaimRepo
+    public class ClaimsRepository1
     {
-        Queue<ClaimRepo> Claim3 = new Queue<ClaimRepo>();
-    }
+        //Fields
+        private Queue<Claims> _claimsQueue = new Queue<Claims>();
+        private bool _isValid;
 
-    public Queue<ClaimRepo> GetClaimList()
-    {
-        return Claim3;
-    }
-
-    public void PrintList(Queue<ClaimRepo> list)
-    {
-        foreach (ClaimRepo item in list)
+        //Methods
+        public Queue<Claims> GetClaims()
         {
-            Console.WriteLine(item);
+            return _claimsQueue;
+        }
+
+        public void AddClaimToQueue(Claims claim)
+        {
+            _claimsQueue.Enqueue(claim);
+        }
+
+        public Queue<Claims> RemoveQueueItem()
+        {
+            _claimsQueue.Dequeue();
+            return _claimsQueue;
+        }
+
+        public bool GetBoolean(Claims claim)
+        {
+            TimeSpan TimeSinceIncident = Convert.ToDateTime(claim.ClaimDate) - Convert.ToDateTime(claim.IncidentDate);
+
+            bool IsValid;
+            if (TimeSinceIncident.Days <= 30)
+            {
+                _isValid = true;
+            }
+            else _isValid = false;
+
+            IsValid = _isValid;
+            return IsValid;
         }
     }
-
-    public void AddClaim(ClaimRepo s)
-    {
-        ClaimRepo.Enqueue(s);
-    }
-
-
 }
